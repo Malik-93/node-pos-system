@@ -58,6 +58,9 @@ async function createServer(): Promise<any> {
       middlewares: [__dirname + '/middlewares/**/*{.ts,.js}'],
       controllers: [__dirname + '/controllers/**/*{.ts,.js}']
     });
+    app.use('/success', (req, res, next) => {
+      res.end('Worked')
+    })
 
     const port = process.env.PORT || 3500;
 
